@@ -1,6 +1,6 @@
 {
   "name": "vi-pack-testx-1xx",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -12,13 +12,16 @@
   },
   "exports": {
     "./lib/components/": {
-      "import": "./dist/esm/components/"
+      "import": "./dist/esm/components/",
+      "require": "./lib/components/"
     },
     "./lib/utils/": {
-      "import": "./dist/esm/utils/"
+      "import": "./dist/esm/utils/",
+      "require": "./lib/utils/"
     },
     "./lib/hooks/": {
-      "import": "./dist/esm/hooks/"
+      "import": "./dist/esm/hooks/",
+      "require": "./lib/hooks/"
     }
   },
   "files": [
