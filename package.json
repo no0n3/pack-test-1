@@ -1,6 +1,6 @@
 {
   "name": "vi-pack-testx-1xx",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -25,6 +25,7 @@
     }
   },
   "files": [
+    "lib/",
     "dist/",
     "src/components",
     "src/hooks",
