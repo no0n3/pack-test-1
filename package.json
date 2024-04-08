@@ -7,18 +7,19 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:cjs": "tsc -p ./tsconfig.build.json --outDir ./dist/cjs --module commonjs",
     "build:esm": "tsc -p ./tsconfig.build.json --outDir ./dist/esm --module esnext --moduleResolution node",
-    "build": "rm -rf ./dist && npm run build:cjs && npm run build:esm"
+    "build:types": "tsc -p ./tsconfig.build.json --declaration --emitDeclarationOnly --outDir ./lib",
+    "build": "rm -rf ./dist && rm -rf ./lib && npm run build:types && npm run build:cjs && npm run build:esm"
   },
   "exports": {
-    "./components/": {
+    "./lib/components/": {
       "import": "./dist/esm/components/",
       "require": "./dist/cjs/components/"
     },
-    "./utils/": {
+    "./lib/utils/": {
       "import": "./dist/esm/utils/",
       "require": "./dist/cjs/utils/"
     },
-    "./hooks/": {
+    "./lib/hooks/": {
       "import": "./dist/esm/hooks/",
       "require": "./dist/cjs/hooks/"
     }
