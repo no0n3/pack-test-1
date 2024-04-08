@@ -1,0 +1,46 @@
+{
+  "name": "pack-test-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:cjs": "tsc -p ./tsconfig.build.json --outDir ./dist/cjs --module commonjs",
+    "build:esm": "tsc -p ./tsconfig.build.json --outDir ./dist/esm --module esnext --moduleResolution node",
+    "build": "rm -rf ./dist && npm run build:cjs && npm run build:esm"
+  },
+  "exports": {
+    "./components/": {
+      "import": "./dist/esm/components/",
+      "require": "./dist/cjs/components/"
+    },
+    "./utils/": {
+      "import": "./dist/esm/utils/",
+      "require": "./dist/cjs/utils/"
+    },
+    "./hooks/": {
+      "import": "./dist/esm/hooks/",
+      "require": "./dist/cjs/hooks/"
+    }
+  },
+  "files": [
+    "dist/",
+    "src/components",
+    "src/hooks",
+    "src/utils",
+    "src/types"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/no0n3/pack-test-1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/no0n3/pack-test-1/issues"
+  },
+  "homepage": "https://github.com/no0n3/pack-test-1#readme",
+  "dependencies": {
+    "typescript": "^5.4.4"
+  }
+}
