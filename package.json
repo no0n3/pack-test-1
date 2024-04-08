@@ -1,27 +1,24 @@
 {
   "name": "vi-pack-testx-1xx",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:cjs": "tsc -p ./tsconfig.build.json --outDir ./dist/cjs --module commonjs",
+    "build:cjs": "tsc -p ./tsconfig.build.json --outDir ./lib --module commonjs --declaration",
     "build:esm": "tsc -p ./tsconfig.build.json --outDir ./dist/esm --module esnext --moduleResolution node",
     "build:types": "tsc -p ./tsconfig.build.json --declaration --emitDeclarationOnly --outDir ./lib",
-    "build": "rm -rf ./dist && rm -rf ./lib && npm run build:types && npm run build:cjs && npm run build:esm"
+    "build": "rm -rf ./dist && rm -rf ./lib && npm run build:cjs && npm run build:esm"
   },
   "exports": {
     "./lib/components/": {
-      "import": "./dist/esm/components/",
-      "require": "./dist/cjs/components/"
+      "import": "./dist/esm/components/"
     },
     "./lib/utils/": {
-      "import": "./dist/esm/utils/",
-      "require": "./dist/cjs/utils/"
+      "import": "./dist/esm/utils/"
     },
     "./lib/hooks/": {
-      "import": "./dist/esm/hooks/",
-      "require": "./dist/cjs/hooks/"
+      "import": "./dist/esm/hooks/"
     }
   },
   "files": [
